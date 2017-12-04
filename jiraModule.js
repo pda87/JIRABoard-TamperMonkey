@@ -25,7 +25,6 @@ var jiraModule = {
 	cacheDOM: function() {
 		this.$buttonArea = $("#ghx-modes-tools");
 		this.$ghxSwimlane = $(".ghx-swimlane");
-        console.log(this.$ghxSwimlane);
 		this.$labels = $(".ghx-swimlane-header");
 	},
 	addTitleLinks: function() {
@@ -65,7 +64,7 @@ var jiraModule = {
 	},
 	insertExpandAllButton: function() {
 		this.$buttonArea.append("<button class='aui-button' id='expand-all'>Expand All</button");
-        this.$buttonArea.find("#expand-all").on("click", this.expandAll);
+        	this.$buttonArea.find("#expand-all").on("click", this.expandAll);
 	},
 	insertCollapseAllButton: function() {
 		var collapseAllButton = "<button class='aui-button' id='collapse-all'>Collapse All</button";
