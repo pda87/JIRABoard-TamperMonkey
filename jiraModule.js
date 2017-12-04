@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
-// @version      0.5
-// @description  Make JIRA great
+// @version      0.6
+// @description  Make JIRA great again
 // @author       Pete Arden
 // @match        https://yourdomain.atlassian.net/secure/RapidBoard.jspa*
 // @grant        none
@@ -75,8 +75,10 @@ var jiraModule = {
 		var dropdown = "<select id='epic-filter'></select>";
 		this.$buttonArea.append(dropdown);
 
-		this.$epicFilter = $("#epic-filter");
+		var epicFilter = $("#epic-filter");
 
+		epicFilter.css("padding", "5px");
+				
 		$("<option value='ALL'>ALL</option>").appendTo("#epic-filter");
 
 		this.$labels.each(function(index, value) {
@@ -84,7 +86,7 @@ var jiraModule = {
 			$("<option value="+ $(value).data("swimlaneId") + ">" + name + "</option>").appendTo("#epic-filter");
 		});
 
-		$("#epic-filter").on("change", function() {
+		epicFilter.on("change", function() {
 
 			$(".ghx-swimlane").fadeOut();
 
