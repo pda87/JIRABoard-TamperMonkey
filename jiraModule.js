@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Make JIRA great again...(if it was ever.)
 // @author       Pete Arden
-// @match        https://yourjiradomainhere.atlassian.net/secure/RapidBoard.jspa*
+// @match        https://fairbanksglobal.atlassian.net/secure/RapidBoard.jspa*
 // @grant        none
 // ==/UserScript==
 
@@ -24,6 +24,7 @@ var jiraModule = {
 	cacheDOM: function() {
 		this.$buttonArea = $("#ghx-modes-tools");
 		this.$ghxSwimlane = $(".ghx-swimlane");
+        console.log(this.$ghxSwimlane);
 		this.$labels = $(".ghx-swimlane-header");
 	},
 	addTitleLinks: function() {
@@ -33,26 +34,21 @@ var jiraModule = {
 		spanButtons.addClass(" js-expander");
 	},
 	collapseAll: function() {
-		this.$ghxSwimlane.addClass("ghx-closed");
+		jiraModule.$ghxSwimlane.addClass("ghx-closed");
 		$("#epic-filter").change();
 	},
 	expandAll: function() {
-		this.$ghxSwimlane.remove("ghx-closed");
+		jiraModule.$ghxSwimlane.removeClass("ghx-closed");
 		$("#epic-filter").change();
 	},
 	insertExpandAllButton: function() {
 		this.$buttonArea.append("<button class='aui-button' id='expand-all'>Expand All</button");
-
-		this.$buttonArea.find("#expand-all").on("click", function() {
-			$(".ghx-swimlane").removeClass("ghx-closed");
-		});
+        this.$buttonArea.find("#expand-all").on("click", this.expandAll);
 	},
 	insertCollapseAllButton: function() {
 		var collapseAllButton = "<button class='aui-button' id='collapse-all'>Collapse All</button";
 		this.$buttonArea.append(collapseAllButton);
-		this.$buttonArea.find("#collapse-all").on("click", function() {
-			$(".ghx-swimlane").addClass("ghx-closed");
-		});
+		this.$buttonArea.find("#collapse-all").on("click", this.collapseAll);
 	},
 	insertEpicFilter: function() {
 		var dropdown = "<select id='epic-filter'></select>";
