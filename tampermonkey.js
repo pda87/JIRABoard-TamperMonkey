@@ -14,6 +14,6 @@
     // Your code here...
     var s = document.createElement("script");
     s.type = 'text/javascript';
-    s.src = 'https://cdn.rawgit.com/pda87/JIRABoard-TamperMonkey/master/jiraModule.js';
+    s.src = 'https://cdn.rawgit.com/pda87/JIRABoard-TamperMonkey/master/module.js';
     document.body.appendChild(s);
 })();
