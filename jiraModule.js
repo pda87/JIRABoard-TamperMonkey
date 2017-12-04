@@ -4,7 +4,7 @@
 // @version      0.4
 // @description  Make JIRA great again...(if it was ever.)
 // @author       Pete Arden
-// @match        https://fairbanksglobal.atlassian.net/secure/RapidBoard.jspa*
+// @match        https://yourdomain.atlassian.net/secure/RapidBoard.jspa*
 // @grant        none
 // ==/UserScript==
 
