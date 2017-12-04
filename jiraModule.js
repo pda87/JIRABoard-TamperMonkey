@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
-// @version      0.4
-// @description  Make JIRA great again...(if it was ever.)
+// @version      0.5
+// @description  Make JIRA great
 // @author       Pete Arden
 // @match        https://yourdomain.atlassian.net/secure/RapidBoard.jspa*
 // @grant        none
@@ -20,6 +20,7 @@ var jiraModule = {
 		this.insertCollapseAllButton();
 		this.collapseAll();
 		this.addTitleLinks();
+		this.colourSwimlanes();
 	},
 	cacheDOM: function() {
 		this.$buttonArea = $("#ghx-modes-tools");
@@ -32,6 +33,27 @@ var jiraModule = {
 
 		spanButtons.addClass("ghx-expander");
 		spanButtons.addClass(" js-expander");
+	},
+	colourSwimlanes: function() {
+		//Too much red is full on
+		//var red = "#f18973";
+		//var red = "#ffd2dc";
+
+		var amber = "#fff7ce";
+		var green = "#edffe5";
+		
+		//this.colourSwimlane(218, red);
+		this.colourSwimlane(252, amber);
+		this.colourSwimlane(254, green);
+		this.colourSwimlane(256, green);
+		//this.colourSwimlane(227, red);
+		this.colourSwimlane(228, green);
+		//this.colourSwimlane(230, red);
+		this.colourSwimlane(229, green);
+		this.colourSwimlane(249, green);
+	},
+	colourSwimlane: function(swimlaneNumber, swimlaneColour) {
+		$("li[data-column-id='" + swimlaneNumber + "']").css("background-color", swimlaneColour);
 	},
 	collapseAll: function() {
 		jiraModule.$ghxSwimlane.addClass("ghx-closed");
