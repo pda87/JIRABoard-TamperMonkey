@@ -8,6 +8,12 @@ var jiraModule = {
 		this.addTitleLinks();
 		this.colourSwimlanes();
 	},
+	reload: function(){
+		this.cacheDom();
+		this.collapseAll();
+		this.addTitleLinks();
+		this.colourSwimlanes();
+	},
 	cacheDOM: function() {
 		this.$buttonArea = $("#ghx-modes-tools");
 		this.$ghxSwimlane = $(".ghx-swimlane");
