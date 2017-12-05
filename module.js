@@ -1,7 +1,3 @@
-(function() {
-    'use strict';
-
-    // Your code here...
 var jiraModule = {
 	init: function() {
 		this.cacheDOM();
@@ -98,4 +94,3 @@ var jiraModule = {
 };
 
 jiraModule.init();
-})();
