@@ -8,6 +8,12 @@ var jiraModule = {
 		this.addTitleLinks();
 		this.colourSwimlanes();
 	},
+	reload: function(){
+		this.cacheDOM();
+		this.collapseAll();
+		this.addTitleLinks();
+		this.colourSwimlanes();
+	},
 	cacheDOM: function() {
 		this.$buttonArea = $("#ghx-modes-tools");
 		this.$ghxSwimlane = $(".ghx-swimlane");
@@ -58,6 +64,7 @@ var jiraModule = {
 		this.$buttonArea.find("#collapse-all").on("click", this.collapseAll);
 	},
 	insertEpicFilter: function() {
+		//Get Epic filter in alphabetic order
 		var dropdown = "<select id='epic-filter'></select>";
 		this.$buttonArea.append(dropdown);
 
@@ -66,11 +73,20 @@ var jiraModule = {
 		epicFilter.css("padding", "5px");
 				
 		$("<option value='ALL'>ALL</option>").appendTo("#epic-filter");
-
+		
+		var labelNames = [];
 		this.$labels.each(function(index, value) {
 			var name = value.innerText;
-			$("<option value="+ $(value).data("swimlaneId") + ">" + name + "</option>").appendTo("#epic-filter");
+			labelNames.push(name);
 		});
+		
+		labelNames.sort();
+
+		for(i = 0; i < labelNames.length; i++) {
+			var name = labelNames[i];
+			var headerSelector = $(".ghx-swimlane-header").filter(":contains('" + name + "')");
+			$("<option value="+ $(headerSelector).data("swimlaneId") + ">" + name + "</option>").appendTo("#epic-filter");
+		}
 
 		epicFilter.on("change", function() {
 
