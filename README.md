@@ -3,7 +3,7 @@ JiraBoard - Tampermonkey
 A simple javascript module to make jira great!
 -
 To use the module, past the script below into your tampermonkey script and replace the domain with your own.
-```
+```javascript
 // ==UserScript==
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
