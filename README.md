@@ -8,7 +8,7 @@ To use the module, past the script below into your tampermonkey script and repla
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Make JIRA great again...(if it was ever.)
+// @description  Make JIRA great again
 // @author       Pete Arden/John Keen
 // @match        https://yourdomain.atlassian.net/secure/RapidBoard.jspa*
 // @grant        none
@@ -21,7 +21,7 @@ To use the module, past the script below into your tampermonkey script and repla
         if(document.readyState === "complete"){
             var s = document.createElement('script');
             s.type = 'text/javascript';
-            s.src = 'https://cdn.rawgit.com/pda87/JIRABoard-TamperMonkey/master/jiraModule.js';
+            s.src = 'https://web192.secure-secure.co.uk/peterarden.net/JavaScript/jiraModule.js';
             document.body.appendChild(s);
         }
     };
