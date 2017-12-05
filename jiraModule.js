@@ -1,3 +1,8 @@
+/*
+    - jiraModule.js
+    - A JavaScript module to run in TamperMonkey and add functionality to an Atlassian JIRA Board
+    - V1.0
+*/
 var jiraModule = {
 	init: function() {
 		this.cacheDOM();
