@@ -9,7 +9,7 @@ var jiraModule = {
 		this.colourSwimlanes();
 	},
 	reload: function(){
-		this.cacheDom();
+		this.cacheDOM();
 		this.collapseAll();
 		this.addTitleLinks();
 		this.colourSwimlanes();
