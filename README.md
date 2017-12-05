@@ -7,7 +7,7 @@ To use the module, past the script below into your tampermonkey script and repla
 // ==UserScript==
 // @name         JIRA
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.1
 // @description  Make JIRA great again...(if it was ever.)
 // @author       Pete Arden
 // @match        https://yourdomain.atlassian.net/secure/RapidBoard.jspa*
