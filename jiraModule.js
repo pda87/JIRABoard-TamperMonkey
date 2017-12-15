@@ -1,7 +1,7 @@
 /*
     - jiraModule.js
     - A JavaScript module to run in TamperMonkey and add functionality to an Atlassian JIRA Board
-    - V1.0
+    - V1.1
 */
 var jiraModule = {
 	init: function() {
@@ -12,17 +12,26 @@ var jiraModule = {
 		this.collapseAll();
 		this.addTitleLinks();
 		this.colourSwimlanes();
+		this.bindReloadButton();
+	},
+	cacheDOM: function() {
+		this.$buttonArea = $("#ghx-modes-tools");
+		this.$ghxSwimlane = $(".ghx-swimlane");
+		this.$labels = $(".ghx-swimlane-header");
+	},
+	bindReloadButton: function() {
+		$(document).keydown(function(event) {
+			//Chrome: 222; Firefox: 163 -> # key
+			if(event.keyCode == 222 || event.keyCode == 163) {
+				jiraModule.reload();
+			}
+		});
 	},
 	reload: function(){
 		this.cacheDOM();
 		this.collapseAll();
 		this.addTitleLinks();
 		this.colourSwimlanes();
-	},
-	cacheDOM: function() {
-		this.$buttonArea = $("#ghx-modes-tools");
-		this.$ghxSwimlane = $(".ghx-swimlane");
-		this.$labels = $(".ghx-swimlane-header");
 	},
 	addTitleLinks: function() {
 		var spanButtons = $('span[role="button"]');
