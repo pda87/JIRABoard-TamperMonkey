@@ -7,6 +7,7 @@ var jiraModule = {
 	init: function() {
 		this.cacheDOM();
 		this.insertEpicFilter();
+		this.insertReloadButton();
 		this.insertExpandAllButton();
 		this.insertCollapseAllButton();
 		this.collapseAll();
@@ -28,10 +29,10 @@ var jiraModule = {
 		});
 	},
 	reload: function(){
-		this.cacheDOM();
-		this.collapseAll();
-		this.addTitleLinks();
-		this.colourSwimlanes();
+		jiraModule.cacheDOM();
+		jiraModule.collapseAll();
+		jiraModule.addTitleLinks();
+		jiraModule.colourSwimlanes();
 	},
 	addTitleLinks: function() {
 		var spanButtons = $('span[role="button"]');
@@ -68,9 +69,13 @@ var jiraModule = {
 		jiraModule.$ghxSwimlane.removeClass("ghx-closed");
 		$("#epic-filter").change();
 	},
+	insertReloadButton: function() {
+		this.$buttonArea.append("<button class='aui-button' id='reload'>Reload (#)</button");
+		this.$buttonArea.find("#reload").on("click", this.reload);
+	},
 	insertExpandAllButton: function() {
 		this.$buttonArea.append("<button class='aui-button' id='expand-all'>Expand All</button");
-        	this.$buttonArea.find("#expand-all").on("click", this.expandAll);
+		this.$buttonArea.find("#expand-all").on("click", this.expandAll);
 	},
 	insertCollapseAllButton: function() {
 		var collapseAllButton = "<button class='aui-button' id='collapse-all'>Collapse All</button";
