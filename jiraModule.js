@@ -70,7 +70,7 @@ var jiraModule = {
 		$("#epic-filter").change();
 	},
 	insertReloadButton: function() {
-		this.$buttonArea.append("<button class='aui-button' id='reload'>Reload (#)</button");
+		this.$buttonArea.append("<button class='aui-button' id='reload' style="margin-left: 10px;">Reload (#)</button");
 		this.$buttonArea.find("#reload").on("click", this.reload);
 	},
 	insertExpandAllButton: function() {
@@ -78,7 +78,7 @@ var jiraModule = {
 		this.$buttonArea.find("#expand-all").on("click", this.expandAll);
 	},
 	insertCollapseAllButton: function() {
-		var collapseAllButton = "<button class='aui-button' id='collapse-all'>Collapse All</button";
+		var collapseAllButton = "<button class='aui-button' id='collapse-all' style="margin-left: 10px;">Collapse All</button";
 		this.$buttonArea.append(collapseAllButton);
 		this.$buttonArea.find("#collapse-all").on("click", this.collapseAll);
 	},
