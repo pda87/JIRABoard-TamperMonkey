@@ -36,9 +36,14 @@ var jiraModule = {
 	},
 	addTitleLinks: function() {
 		var spanButtons = $('span[role="button"]');
-
+		
+		var jsExpanderClass = "js-expander"; 
+		
 		spanButtons.addClass("ghx-expander");
-		spanButtons.addClass(" js-expander");
+		spanButtons.addClass(jsExpanderClass);
+		
+		var epicCounts = $(".ghx-description");
+		epicCounts.addClass(jsExpanderClass);
 	},
 	colourSwimlanes: function() {
 		//Too much red is full on
