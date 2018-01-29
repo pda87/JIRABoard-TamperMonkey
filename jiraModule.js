@@ -35,7 +35,7 @@ var jiraModule = {
 		jiraModule.colourSwimlanes();
 	},
 	addTitleLinks: function() {
-		var spanButtons = $('span[role="button"]');
+		/*var spanButtons = $('span[role="button"]');
 		
 		var jsExpanderClass = "js-expander"; 
 		
@@ -43,7 +43,8 @@ var jiraModule = {
 		spanButtons.addClass(jsExpanderClass);
 		
 		var epicCounts = $(".ghx-description");
-		epicCounts.addClass(jsExpanderClass);
+		epicCounts.addClass(jsExpanderClass);*/
+		$('.ghx-heading').children('span').addClass('js-expander');
 	},
 	colourSwimlanes: function() {
 		//Too much red is full on
