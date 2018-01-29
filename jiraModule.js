@@ -35,15 +35,6 @@ var jiraModule = {
 		jiraModule.colourSwimlanes();
 	},
 	addTitleLinks: function() {
-		/*var spanButtons = $('span[role="button"]');
-		
-		var jsExpanderClass = "js-expander"; 
-		
-		spanButtons.addClass("ghx-expander");
-		spanButtons.addClass(jsExpanderClass);
-		
-		var epicCounts = $(".ghx-description");
-		epicCounts.addClass(jsExpanderClass);*/
 		$('.ghx-heading').children('span').addClass('js-expander');
 		$('.ghx-heading').children('span').css({cursor: 'pointer'});
 	},
@@ -96,7 +87,11 @@ var jiraModule = {
 
 		var epicFilter = $("#epic-filter");
 
-		epicFilter.css("padding", "5px");
+		epicFilter.css({
+                	'padding': '5px',
+                	'margin-left': '10px',
+                	'border-radius': '3px'
+            	});
 				
 		$("<option value='ALL'>ALL</option>").appendTo("#epic-filter");
 		
