@@ -45,6 +45,7 @@ var jiraModule = {
 		var epicCounts = $(".ghx-description");
 		epicCounts.addClass(jsExpanderClass);*/
 		$('.ghx-heading').children('span').addClass('js-expander');
+		$('.ghx-heading').children('span').css({cursor: 'pointer'});
 	},
 	colourSwimlanes: function() {
 		//Too much red is full on
