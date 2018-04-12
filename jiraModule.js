@@ -52,6 +52,7 @@ var jiraModule = {
 		this.colourSwimlane(256, green);
 		//this.colourSwimlane(227, red);
 		this.colourSwimlane(228, green);
+		this.colourSwimlane(355, amber);
 		//this.colourSwimlane(230, red);
 		this.colourSwimlane(229, green);
 		this.colourSwimlane(249, green);
