@@ -98,7 +98,8 @@ var jiraModule = {
 		
 		var labelNames = [];
 		this.$labels.each(function(index, value) {
-			var name = value.innerText;
+			//var name = value.innerText;
+			var name = value.children[1].children[0].innerHTML;
 			labelNames.push(name);
 		});
 		
