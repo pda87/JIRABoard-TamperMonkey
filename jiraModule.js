@@ -5,14 +5,11 @@
 */
 var jiraModule = {
 	init: function() {
-		this.cacheDOM();
+		jiraModule.reload();
 		this.insertEpicFilter();
 		this.insertReloadButton();
 		this.insertExpandAllButton();
 		this.insertCollapseAllButton();
-		this.collapseAll();
-		this.addTitleLinks();
-		this.colourSwimlanes();
 		this.bindReloadButton();
 	},
 	cacheDOM: function() {
